@@ -1,12 +1,9 @@
 import streamlit as st
 from google import genai
 
-# --- ૧૦૦% કન્ફર્મ અને વર્કિંગ API Key લોડર ---
-# જો ક્લાઉડ સિક્રેટ્સમાં કી હશે તો ત્યાંથી લેશે, નહીં તો આ સ્ટેબલ સેફ કી ઓટોમેટિક રન થઈ જશે!
-if "GEMINI_API_KEY" in st.secrets and st.secrets["GEMINI_API_KEY"]:
-    GOOGLE_API_KEY = st.secrets["GEMINI_API_KEY"]
-else:
-    GOOGLE_API_KEY = "AQ.Ab8RN6II-RCXyyUbihvRaTzD5_JLIrJlCnNJjoho_RmpZAYHzQ"
+# --- ૧૦૦% લોકલ અને ઓનલાઈન વર્કિંગ API Key લોડર ---
+# આપણે ઓનલાઈન સિક્રેટ્સની પળોજણ જ કાઢી નાખીએ છીએ જેથી સીધો કોડ કી પકડી લે!
+GOOGLE_API_KEY = "AQ.Ab8RN6II-RCXyyUbihvRaTzD5_JLIrJlCnNJjoho_RmpZAYHzQ"
 
 # Initialize the new GenAI client
 client = genai.Client(api_key=GOOGLE_API_KEY)
