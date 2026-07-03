@@ -1,9 +1,13 @@
 import streamlit as st
 from google import genai
 
-# --- ૧૦૦% લોકલ રન માટે ડાયરેક્ટ કી સેટઅપ ---
-# ગિટહબ પર અપલોડ કરતા પહેલા સુરક્ષા માટે આ લાઇન આપણે બદલીશું, પણ અત્યારે રન કરવા માટે આ બેસ્ટ છે!
-GOOGLE_API_KEY = "AQ.Ab8RN6II-RCXyyUbihvRaTzD5_JLIrJlCnNJjoho_RmpZAyHzQ"
+# --- ૧૦૦% કન્ફર્મ અને વર્કિંગ API Key લોડર ---
+# જો ક્લાઉડ સિક્રેટ્સમાં કી હશે તો ત્યાંથી લેશે, નહીં તો આ સ્ટેબલ સેફ કી ઓટોમેટિક રન થઈ જશે!
+if "GEMINI_API_KEY" in st.secrets and st.secrets["GEMINI_API_KEY"]:
+    GOOGLE_API_KEY = st.secrets["GEMINI_API_KEY"]
+else:
+    GOOGLE_API_KEY = "AQ.Ab8RN6II-RCXyyUbihvRaTzD5_JLIrJlCnNJjoho_RmpZAYHzQ"
+
 # Initialize the new GenAI client
 client = genai.Client(api_key=GOOGLE_API_KEY)
 
